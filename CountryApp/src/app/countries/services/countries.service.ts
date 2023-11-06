@@ -18,4 +18,13 @@ export class CountriesService {
         catchError( error => of([])) // Catch the error and return a new empty observable
       );
   }
+
+  searchCountry( country: string ): Observable<Country[]> {
+    const countryUrl: string = `${this.baseUrl}/name/${country}`;
+    return this.httpClient
+      .get<Country[]>(countryUrl)
+      .pipe(
+        catchError(error => of([]))
+      );
+  }
 }

@@ -14,7 +14,7 @@ export class ByCapitalPageComponent {
 
   searchByCapital( term: string ): void {
     this.service.searchCapital(term)
-      .subscribe(countries => {
+      .subscribe((countries: Country[]): void => {
         this.countries = countries;
       });
   }
