@@ -27,4 +27,13 @@ export class CountriesService {
         catchError(error => of([]))
       );
   }
+
+  searchRegion( region: string ): Observable<Country[]> {
+    const regionUrl: string = `${this.baseUrl}/region/${region}`;
+    return this.httpClient
+      .get<Country[]>(regionUrl)
+      .pipe(
+        catchError(error => of([]))
+      );
+  }
 }
