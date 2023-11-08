@@ -41,7 +41,7 @@ export class CountriesService {
       .get<Country[]>(alphaUrl)
       .pipe(
         map(countries => countries.length > 0 ? countries[0] : null),
-        catchError(error => of(null)) // Catch the error and return a new empty observable
+        catchError(() => of(null)) // Catch the error and return a new empty observable
       );
   }
 
