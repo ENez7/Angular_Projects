@@ -1,8 +1,8 @@
-import {NgModule} from '@angular/core';
-import {RouterModule, Routes} from "@angular/router";
-import {HomePageComponent} from "./shared/pages/home-page/home-page.component";
-import {AboutPageComponent} from "./shared/pages/about-page/about-page.component";
-import {ContactPageComponent} from "./shared/pages/contact-page/contact-page.component";
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { HomePageComponent } from './shared/pages/home-page/home-page.component';
+import { AboutPageComponent } from './shared/pages/about-page/about-page.component';
+import { ContactPageComponent } from './shared/pages/contact-page/contact-page.component';
 
 const routes: Routes = [
   // {
@@ -11,29 +11,26 @@ const routes: Routes = [
   // },
   {
     path: 'about',
-    component: AboutPageComponent
+    component: AboutPageComponent,
   },
   {
     path: 'contact',
-    component: ContactPageComponent
+    component: ContactPageComponent,
   },
   {
     path: 'countries',
-    loadChildren: () => import('./countries/countries.module')
-                        .then( m => m.CountriesModule ) // this is lazy loading
+    loadChildren: () =>
+      import('./countries/countries.module').then((m) => m.CountriesModule), // this is lazy loading
   },
   {
     path: '**', // Any unknown path
-    redirectTo: 'countries'
-  }
+    redirectTo: 'countries',
+  },
 ];
 @NgModule({
   imports: [
-    RouterModule.forRoot( routes ), // This is the main router of the app
+    RouterModule.forRoot(routes), // This is the main router of the app
   ],
-  exports: [
-    RouterModule,
-  ]
+  exports: [RouterModule],
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule {}

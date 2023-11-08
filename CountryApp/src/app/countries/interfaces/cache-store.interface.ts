@@ -1,5 +1,5 @@
-import { Country } from "./country";
-import { Region } from "./region.type";
+import { Country } from './country';
+import { Region } from './region.type';
 
 export interface CacheStoreInterface {
   byCapital: TermCountry;

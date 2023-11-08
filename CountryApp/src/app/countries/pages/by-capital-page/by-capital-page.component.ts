@@ -1,14 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {CountriesService} from "../../services/countries.service";
-import {Country} from "../../interfaces/country";
+import { Component, OnInit } from '@angular/core';
+import { CountriesService } from '../../services/countries.service';
+import { Country } from '../../interfaces/country';
 
 @Component({
   selector: 'app-by-capital-page',
   templateUrl: './by-capital-page.component.html',
-  styles: [
-  ]
+  styles: [],
 })
-export class ByCapitalPageComponent implements OnInit{
+export class ByCapitalPageComponent implements OnInit {
   public countries: Country[] = [];
   public isLoading: boolean = false;
   public initialValue: string = '';
@@ -20,13 +19,11 @@ export class ByCapitalPageComponent implements OnInit{
     this.initialValue = this.service.cacheStore.byCapital.term;
   }
 
-  searchByCapital( term: string ): void {
+  searchByCapital(term: string): void {
     this.isLoading = true;
-    this.service.searchCapital(term)
-      .subscribe((countries: Country[]): void => {
-        this.countries = countries;
-        this.isLoading = false;
-      });
+    this.service.searchCapital(term).subscribe((countries: Country[]): void => {
+      this.countries = countries;
+      this.isLoading = false;
+    });
   }
-
 }
